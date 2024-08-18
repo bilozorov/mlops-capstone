@@ -9,8 +9,8 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
-# COPY ["flask-app.py", "model.pkl", "preprocess.bin", "./"]
-COPY ["flask-app.py", "./"]
+COPY ["flask-app.py", "best_model_scaler_KNN.bin", "best_model_KNN.bin", "./"]
+# COPY ["flask-app.py", "./"]
 
 EXPOSE 9696
 

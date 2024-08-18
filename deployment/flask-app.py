@@ -8,8 +8,8 @@ from flask import Flask, request, jsonify
 
 
 RUN_ID = os.getenv('RUN_ID', 'f147d40caf35451fa33912a2fd272c6d')
-# MLFLOW_SERVER_URL = os.getenv('RUN_ID', 'http://mlflow:5000')
-MLFLOW_SERVER_URL = os.getenv('RUN_ID', 'http://0.0.0.0:5001')  # for local macos system
+MLFLOW_SERVER_URL = os.getenv('RUN_ID', 'http://mlflow:5000')
+# MLFLOW_SERVER_URL = os.getenv('RUN_ID', 'http://0.0.0.0:5001')  # for local macos system
 
 
 def is_mlflow_server_running(mlflow_server_url):
