@@ -37,7 +37,7 @@ Cardiovascular diseases, particularly heart attacks, are a leading cause of deat
 ## Tech Stack
 - **MLflow**: Experimet tracking
 - **Mage**: Orchestration
-– **Docker**: Containerization  
+- **Docker**: Containerization  
 - [TBD] **AWS RDS**: MLflow tracking database
 - [TBD] **AWS Lambda**: Running the training and inference code
 - [TBD] **AWS EFS**: Storing data
@@ -67,7 +67,6 @@ git clone https://github.com/bilozorov/mlops-capstone.git
 cd orchestration/
 
 ./scripts/start.sh
-
 ```
 
 Mage: http://localhost:6789
@@ -122,8 +121,8 @@ docker images
 docker tag bilozorov/mlops-capstone-flask bilozorov/mlops-capstone-flask:amd64
 
 docker push bilozorov/mlops-capstone-flask:amd64
-
 ```
+
 https://hub.docker.com/layers/bilozorov/mlops-capstone-flask/amd64/images/sha256-9f59a05cde4088570ad70444b3ffcb0d28d8a9969383f6b5e03a8c00781c7b55?context=repo
 
 ![2.png](./pictures/2.png)
