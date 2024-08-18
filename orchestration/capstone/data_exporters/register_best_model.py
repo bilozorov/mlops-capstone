@@ -41,20 +41,24 @@ def export_data(data, *args, **kwargs):
     # Register the best model
     run_id_best_model = best_run.info.run_id
     name_best_model = best_run.data.tags.get("model_name", "Unnamed_Model")
+    print(f'{name_best_model}: {run_id_best_model}')
     model_uri = f"runs:/{run_id_best_model}/models"
-    mlflow.register_model(model_uri, name="Heart-best-model")
+    mlflow.register_model(model_uri, name="Heart-best-model-new")
 
-    #Load Artifact from Mlflow
-    artifact_path = "scaler/scaler.bin"
-    artifact_local_path = mlflow.artifacts.download_artifacts(
-        artifact_uri=f"runs:/{run_id_best_model}/{artifact_path}"
-    )
-    with open(artifact_local_path, "rb") as f:
-        scaler = pickle.load(f)
-    os.makedirs("scaler", exist_ok=True)
-    with open(f'scaler/best_model_scaler_{name_best_model}.bin', 'wb') as f_out:
-        pickle.dump(scaler, f_out)
-    
+    try:
+        #Load Artifact from Mlflow
+        artifact_path = "scaler/scaler.bin"
+        artifact_local_path = mlflow.artifacts.download_artifacts(
+            artifact_uri=f"runs:/{run_id_best_model}/{artifact_path}"
+        )
+        with open(artifact_local_path, "rb") as f:
+            scaler = pickle.load(f)
+        os.makedirs("scaler", exist_ok=True)
+        with open(f'scaler/best_model_scaler_{name_best_model}.bin', 'wb') as f_out:
+            pickle.dump(scaler, f_out)
+    except:
+        print("scaler/scaler.bin downloading error")
+        
 
     # path = client.download_artifacts(run_id=run_id_best_model, path='scaler/scaler.bin')
 
